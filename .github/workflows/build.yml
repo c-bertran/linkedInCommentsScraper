@@ -24,23 +24,9 @@ jobs:
       - name: Create ZIP archive
         run: |
           zip -r linkedin-comments-scraper-${{ github.ref_name }}.zip ./src
-          
-      - name: Create Release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref_name }}
-          draft: false
-          prerelease: false
-          
+
       - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: softprops/action-gh-release@v2
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./linkedin-comments-scraper-${{ github.ref_name }}.zip
-          asset_name: linkedin-comments-scraper-${{ github.ref_name }}.zip
-          asset_content_type: application/zip
+          name: Release ${{ github.ref_name }}
+          files: linkedin-comments-scraper-${{ github.ref_name }}.zip
