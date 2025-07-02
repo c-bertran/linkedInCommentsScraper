@@ -23,8 +23,7 @@ jobs:
         
       - name: Create ZIP archive
         run: |
-          cd src
-          zip -r ../linkedin-comments-scraper-${{ github.ref_name }}.zip .
+          zip -r linkedin-comments-scraper-${{ github.ref_name }}.zip ./src
           
       - name: Create Release
         uses: actions/create-release@v1
