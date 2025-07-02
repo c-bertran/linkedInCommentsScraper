@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1"
+		/>
+		<link
+			rel="stylesheet"
+			href="popup.css"
+		/>
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<h1>🔗 LinkedIn Scraper</h1>
+				<div class="version">v1.0.0</div>
+			</header>
+
+			<section class="status-section">
+				<h2>📍 Page Status</h2>
+				<div
+					id="page-status"
+					class="status-message"
+				>
+					Checking current page...
+				</div>
+			</section>
+
+			<section class="options-section">
+				<h2>⚙️ Scraping Options</h2>
+				<div class="option-group">
+					<label class="checkbox-label">
+						<input
+							type="checkbox"
+							id="include-comments"
+							checked
+						/>
+						<span class="checkmark"></span>
+						Extract Comments
+					</label>
+					<label class="checkbox-label">
+						<input
+							type="checkbox"
+							id="include-reactions"
+							checked
+						/>
+						<span class="checkmark"></span>
+						Extract Reactions
+					</label>
+					<label class="checkbox-label">
+						<input
+							type="checkbox"
+							id="debug-mode"
+						/>
+						<span class="checkmark"></span>
+						Debug Mode
+					</label>
+				</div>
+			</section>
+
+			<section class="action-section">
+				<button
+					id="scrape-btn"
+					class="btn-primary"
+					disabled
+				>
+					🚀 Start Scraping
+				</button>
+				<button
+					id="stop-btn"
+					class="btn-secondary"
+					style="display: none"
+				>
+					⏹️ Stop Scraping
+				</button>
+			</section>
+
+			<section
+				class="progress-section"
+				id="progress-section"
+				style="display: none"
+			>
+				<h2>⏳ Progress</h2>
+				<div class="progress-bar">
+					<div
+						id="progress-fill"
+						class="progress-fill"
+					></div>
+				</div>
+				<div
+					id="progress-text"
+					class="progress-text"
+				>
+					Initializing...
+				</div>
+			</section>
+
+			<section
+				class="results-section"
+				id="results-section"
+				style="display: none"
+			>
+				<h2>📊 Results</h2>
+				<div
+					id="results-stats"
+					class="stats-container"
+				>
+					<!-- Stats will be populated here -->
+				</div>
+				<div class="button-group">
+					<button
+						id="download-csv-btn"
+						class="btn-secondary"
+					>
+						💾 Download CSV
+					</button>
+					<button
+						id="copy-json-btn"
+						class="btn-secondary"
+					>
+						📋 Copy JSON
+					</button>
+				</div>
+			</section>
+
+			<section
+				class="error-section"
+				id="error-section"
+				style="display: none"
+			>
+				<h2>❌ Error</h2>
+				<div
+					id="error-message"
+					class="error-message"
+				>
+					<!-- Error message will be populated here -->
+				</div>
+				<button
+					id="retry-btn"
+					class="btn-secondary"
+				>
+					🔄 Retry
+				</button>
+			</section>
+
+			<footer>
+				<div class="help-text">Navigate to a LinkedIn post and click "Start Scraping"</div>
+			</footer>
+		</div>
+
+		<script src="ui-state-manager.js"></script>
+		<script src="popup.js"></script>
+	</body>
+</html>
